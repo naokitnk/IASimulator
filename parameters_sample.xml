@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<parameter_list>
+	<global>
+		<num_producer>10</num_producer>
+		<num_consumer>10</num_consumer>
+		<fee_rate>0</fee_rate>
+	</global>
+	<alpha>
+		<authority>0.01</authority>
+		<consumer_min>0.1</consumer_min>
+		<consumer_max>10.0</consumer_max>
+	</alpha>
+	<capital>
+		<authority>10</authority>
+		<producer>10</producer>
+		<consumer>10</consumer>
+	</capital>
+	<cost profile="Normal">
+		<location_min>0.5</location_min>
+		<location_max>1.0</location_max>
+		<scale_min>0.1</scale_min>
+		<scale_max>0.35</scale_max>
+	</cost>
+	<value profile="Normal">
+		<location_min>1.0</location_min>
+		<location_max>1.5</location_max>
+		<scale_min>0.25</scale_min>
+		<scale_max>0.5</scale_max>
+	</value>
+
+        <duration>250</duration>
+        <consumer_arrival>
+                <lambda_location>0.2</lambda_location>
+                <lambda_scale>0.01</lambda_scale>
+        </consumer_arrival>
+        <cost_arrival>
+                <lambda_location>0.5</lambda_location>
+                <lambda_scale>0.01</lambda_scale>
+        </cost_arrival>
+        <value_arrival>
+                <lambda_location>1.0</lambda_location>
+                <lambda_scale>0.01</lambda_scale>
+        </value_arrival>
+</parameter_list>

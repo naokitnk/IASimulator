@@ -1,0 +1,34 @@
+SHELL=/bin/sh
+CXX=@CXX@
+CXXFLAGS=@CXXFLAGS@
+INSTALL=install -c
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+bindir=@bindir@
+
+
+all: SimulationTestbed
+
+SimulationTestbed: SimulationTestbed.o Simulator.o SimulatorOneRound.o SimulatorDiscreteEvent.o Principal.o Authority.o Producer.o Consumer.o Profile.o ProfileDouble.o ProfileUniform.o ProfileNormal.o ProfileLognormal.o ProfileExponential.o ProfileZAGA.o ProfileSamples.o Utility.o UtilityLinear.o UtilityQuadratic.o UtilityLogarithmic.o UtilityExponential.o UtilityPower.o Event.o EventNull.o EventPayDividend.o EventArrive.o EventFixCost.o EventFixValue.o EventUpdateStep.o
+	$(CXX) $(CXXFLAGS) -o $@ SimulationTestbed.o Simulator.o SimulatorOneRound.o SimulatorDiscreteEvent.o Principal.o Authority.o Producer.o Consumer.o Profile.o ProfileDouble.o ProfileUniform.o ProfileNormal.o ProfileLognormal.o ProfileExponential.o ProfileZAGA.o ProfileSamples.o Utility.o UtilityLinear.o UtilityQuadratic.o UtilityLogarithmic.o UtilityExponential.o UtilityPower.o Event.o EventNull.o EventPayDividend.o EventArrive.o EventFixCost.o EventFixValue.o EventUpdateStep.o
+
+cpp.o:
+	$(CXX) $(CXXFLAGS) -c $<
+
+
+.PHONY: install
+install:
+	$(INSTALL) -m 755 SimulationTestbed $(bindir)
+
+.PHONY: uninstall
+uninstall:
+	rm $(bindir)/SimulationTestbed
+
+
+.PHONY: clean
+clean:
+	rm -rf SimulationTestbed SimulationTestbed.o Simulator.o SimulatorOneRound.o SimulatorDiscreteEvent.o Principal.o Authority.o Producer.o Consumer.o Profile.o ProfileDouble.o ProfileUniform.o ProfileNormal.o ProfileLognormal.o ProfileExponential.o ProfileZAGA.o ProfileSamples.o Utility.o UtilityLinear.o UtilityQuadratic.o UtilityLogarithmic.o UtilityExponential.o UtilityPower.o Event.o EventNull.o EventPayDividend.o EventArrive.o EventFixCost.o EventFixValue.o EventUpdateStep.o
+
+.PHONY: distclean
+distclean: clean
+	rm -f Makefile config.status config.cache config.log
