@@ -1,0 +1,6 @@
+*.o
+SimulationTestbed
+Makefile
+config.status
+config.cache
+config.log
